@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f4">
+  <meta name="description" content="An open-ended research notebook, powered by Brave Answers and local Qwen.">
+  <title>R3N — Follow the question</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+  <script src="/knowledge.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="R3N home"><span class="brand-mark">⠿</span><b>r3n<span>.</span></b><span class="brand-caption">RESEARCH NOTEBOOK</span></a>
+    <button class="new-button" id="new-project"><span>＋</span> New investigation <kbd>N</kbd></button>
+    <div class="sidebar-label">YOUR INVESTIGATIONS <span id="project-count">0</span></div>
+    <nav id="projects" aria-label="Investigations"></nav>
+    <div class="sidebar-bottom">
+      <div class="local-label"><span class="status-dot"></span> A local place to think</div>
+      <p>Your notes, your machine.<br>Research that stays with you.</p>
+      <button class="text-button settings-link" id="open-connections">⚙ <span>Connections & setup</span> <span>↗</span></button>
+    </div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div><span class="muted">Workspace</span><span class="slash">/</span><span id="breadcrumb">New investigation</span></div><button id="connection-status" class="connection-chip"><span class="status-dot neutral"></span> Checking connections</button></header>
+    <main id="main"></main>
+    <footer class="page-footer"><span>POWERED BY CURIOSITY</span><span>Brave Answers <span class="muted">×</span> local Qwen</span></footer>
+  </div>
+  <dialog id="connections"><form method="dialog"><button class="close-button" aria-label="Close">×</button></form><span class="eyebrow">YOUR RESEARCH ENGINE</span><h2>Connections & setup</h2><div id="connection-details"></div><button class="button secondary" id="refresh-health">Check connections</button></dialog>
+  <dialog id="settings"><form id="settings-form"><span class="eyebrow">RESEARCH PREFERENCES</span><h2>Set the pace.</h2><label>Questions per cycle<input name="questions_per_cycle" type="number" min="1" max="10" required></label><label>Answer budget <span class="muted">(0 = unlimited)</span><input name="answer_budget" type="number" min="0" max="10000" required></label><p class="helper">The budget counts saved answers across this investigation. A failed or interrupted Brave request may still be billed.</p><div class="dialog-actions"><button type="button" class="button secondary" id="cancel-settings">Cancel</button><button class="button">Save preferences</button></div></form></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
